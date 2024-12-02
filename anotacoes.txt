@@ -1,0 +1,8 @@
+ let uid = firebase.auth().currentUser.uid;
+
+    let key = await firebase.database().ref('historico').push().key;
+    await firebase.database().ref('historico').child(uid).child(key).set({
+      tipo,
+      valor,
+      data: Date.now(),
+    });
